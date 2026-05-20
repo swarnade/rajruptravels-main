@@ -19,6 +19,7 @@ const TravelPackageSchema = new Schema(
       enum: ["domestic", "international"],
       default: "domestic",
     },
+    state: { type: String, required: true, trim: true },
     destination: { type: String, required: true, trim: true },
     coverImage: { type: String, required: true },
     price: { type: Number, required: true, min: 0 },
@@ -41,6 +42,7 @@ export type TravelPackageType = {
   name: string;
   slug: string;
   category: "domestic" | "international";
+  state: string;
   destination: string;
   coverImage: string;
   price: number;

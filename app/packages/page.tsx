@@ -60,7 +60,7 @@ export default async function PackagesPage() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                        {travelPackage.category}
+                        {travelPackage.state} · {travelPackage.category}
                       </p>
                       <h2 className="mt-1 text-xl font-semibold text-white">{travelPackage.name}</h2>
                     </div>
