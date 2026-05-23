@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = "mongodb://localhost:27017/rajrup-travels";
+const MONGODB_URI = process.env.MONGODB_URL;
 
 type MongooseCache = {
   conn: typeof mongoose | null;
