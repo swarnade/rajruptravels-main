@@ -1,9 +1,5 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
-
-/* ─────────────────────────────── DATA ─────────────────────────────── */
-
 const destinations = [
   { name: "Manali", nights: "4 Nights / 5 Days", price: "₹12,999", accent: "#60a5fa", dark: "#1e3a5f", emoji: "🏔️", tag: "Snow Peak" },
   { name: "Goa",    nights: "3 Nights / 4 Days", price: "₹9,999",  accent: "#34d399", dark: "#064e3b", emoji: "🏖️", tag: "Beach Bliss" },
@@ -360,7 +356,14 @@ export default function RajRupTravels() {
             </div>
           </div>
 
-          <button className="lg:hidden font-sans-dm" onClick={() => setMobileOpen(!mobileOpen)} style={{ fontSize: 22, background: "none", border: "none", color: "#0e1f4d", cursor: "pointer", padding: 8 }}>
+          <button
+            type="button"
+            title={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="lg:hidden font-sans-dm"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            style={{ fontSize: 22, background: "none", border: "none", color: "#0e1f4d", cursor: "pointer", padding: 8 }}
+          >
             {mobileOpen ? "✕" : "☰"}
           </button>
         </div>
@@ -475,8 +478,8 @@ export default function RajRupTravels() {
 
                   {/* Destination dots */}
                   <div style={{ position: "absolute", top: 28, right: 28, display: "flex", gap: 6 }}>
-                    {destinations.map((_, i) => (
-                      <button key={i} onClick={() => setActiveDestIdx(i)} style={{
+                    {destinations.map((dest, i) => (
+                      <button key={i} type="button" title={`View ${dest.name}`} aria-label={`View ${dest.name}`} onClick={() => setActiveDestIdx(i)} style={{
                         width: i === activeDestIdx ? 24 : 8,
                         height: 8, borderRadius: 4,
                         background: i === activeDestIdx ? activeDest.accent : "rgba(255,255,255,0.25)",
@@ -830,7 +833,7 @@ export default function RajRupTravels() {
               className="font-sans-dm"
               style={{ flex: 1, padding: "16px 20px", borderRadius: 16, border: "none", fontSize: 15, outline: "none", boxShadow: "0 4px 20px rgba(0,0,0,0.12)", color: "#0e1f4d" }}
             />
-            <button style={{
+            <button type="button" title="Subscribe" aria-label="Subscribe" style={{
               background: "#0e1f4d", color: "white", border: "none",
               borderRadius: 16, padding: "16px 28px",
               fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 15,
@@ -862,7 +865,7 @@ export default function RajRupTravels() {
               {/* Social */}
               <div style={{ display: "flex", gap: 10 }}>
                 {[{ icon: "f", color: "#1877f2" }, { icon: "in", color: "#e1306c" }, { icon: "t", color: "#1da1f2" }, { icon: "▶", color: "#ff0000" }].map(({ icon, color }, i) => (
-                  <button key={i} style={{
+                  <button key={i} type="button" title={icon === "f" ? "Facebook" : icon === "in" ? "Instagram" : icon === "t" ? "Twitter" : "YouTube"} aria-label={icon === "f" ? "Facebook" : icon === "in" ? "Instagram" : icon === "t" ? "Twitter" : "YouTube"} style={{
                     width: 38, height: 38, borderRadius: 12,
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.1)",
